@@ -1,0 +1,11 @@
+spring:
+  sleuth:
+    baggage:
+      tag-fields:      - x-corr-id
+      remote-fields:
+        x-corr-id
+      correlation-enabled: true
+      correlation-fields:
+        x-corr-id  application:    name: Spring webflux sleuth
+
+logging.pattern.level: '%clr(%5p) %clr([corrid=%X{x-corr-id:-} traceid=%X{traceId:-} spanid=%X{spanId:-} parentspanid=%X{parentId:-}]){green}'
